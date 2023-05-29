@@ -1,0 +1,379 @@
+\input cwebmac
+
+\N{0}{1}MetaverseX Copyright. We will find the arrangement of the mobius strip
+such that all letters pertianing to pentominoes fit on a mobius strip of size
+15x4.
+
+\Y\B\X2:Include libraries.\X;\6
+\X3:Set definitions.\X\6
+\X4:Set global variables.\X\6
+\X6:Generate sequences in the table for the exact colored coloring problem.\X\6
+\X33:Backtracking on generated table.\X\par
+\fi
+
+\M{2}First we include libraries.
+\Y\B\4\X2:Include libraries.\X${}\E{}$\6
+\8\#\&{include} \.{<stdio.h>}\par
+\U1.\fi
+
+\M{3}\PB{\.{MAX\_ARRAY}} is the maximum number of placings a letter pentomino
+can have on the $15 \mul 4$ mobius strip.
+\Y\B\4\X3:Set definitions.\X${}\E{}$\6
+\8\#\&{define} \.{MAX\_ARRAY}\5\T{1000}\par
+\U1.\fi
+
+\M{4}And set the global variables.
+
+\Y\B\4\X4:Set global variables.\X${}\E{}$\6
+\&{int} \|l${}\K\T{15},{}$ \|w${}\K\T{4}{}$;\par
+\U1.\fi
+
+\M{5}Then we generate all the places where each letter can be.
+O 11 12 13 14 15
+O 12 13 14 15 16
+O 13 14 15 16 17
+O 14 15 16 17 18
+...
+O 1f 11 12 13 14
+O 21 22 23 24 25
+...
+Z ...
+The formula for O is ab_1, ab_2, ab_3, ab_4, ab_5 for a in 1-4, b_1=c for c
+from 1-15 and b_(i+1) = b_i + 1 (mod 15) for 1<i<=15.
+\fi
+
+\N{1}{6}We generate the coordinates in the array that can be thought of as
+sequences corresponding to the letter as the first element in the sequence for
+the exact covering problem followed by the coordinates of the five
+perpendicularly adjacent pentominoes.
+\Y\B\4\X6:Generate sequences in the table for the exact colored coloring
+problem.\X${}\E{}$\6
+\X7:O\X;\6
+\X15:P\X;\6
+\X20:Q\X;\par
+\U1.\fi
+
+\N{1}{7}O is for setting the 3d array O with the five coordinates. These
+correspond to all placements of the pentomino on the mobius strip.
+\Y\B\4\X7:O\X${}\E{}$\6
+\&{int} \|O[\.{MAX\_ARRAY}][\T{5}][\T{2}]${},{}$ \|c${}\K\T{0};{}$\7
+\&{for} (\X10:All the width\X;\6
+\,)\5
+${}\{{}$\1\6
+\&{for} (\X11:All x position in width\X;\6
+\,)\5
+${}\{{}$\1\6
+\X8:Set O\X\6
+\X12:Increment c\X;\6
+\4${}\}{}$\2\6
+\4${}\}{}$\2\6
+\X13:Set sentinel for O.\X\par
+\U6.\fi
+
+\M{8}Setting all the coordinates and the positions of O.
+\Y\B\4\X8:Set O\X${}\E{}$\6
+\&{for} (\X9:All five consecutive boxes for O\X\6
+\,)\5
+${}\{{}$\1\6
+${}\|O[\|c][\|b][\T{0}]\K(\|x+\|b)\MOD\T{15};{}$\6
+\X14:If x+b is less than or equal to 15.\X\6
+${}\|O[\|c][\|b][\T{1}]\K\|y;{}$\6
+\&{else}\1\5
+${}\|O[\|c][\|b][\T{1}]\K\|w-\|y+\T{1}{}$\2\6
+\4${}\}{}$\2\par
+\U7.\fi
+
+\M{9}Iteration for the consecutive horizontal boxes for O.
+\Y\B\4\X9:All five consecutive boxes for O\X${}\E{}$\6
+\&{int} \|b${}\K\T{0};{}$\7
+${}\|b<\T{5};$ $\|b\PP{}$\par
+\U8.\fi
+
+\M{10}Iterating across the width of the mobius strip. Only relevant if the
+width of the pentomino is two.
+\Y\B\4\X10:All the width\X${}\E{}$\6
+\&{int} \|y${}\K\T{0};{}$\7
+${}\|y<\T{4};$ $\|y\PP{}$\par
+\U7.\fi
+
+\M{11}Iterating across the length 15 of the mobius strip.
+\Y\B\4\X11:All x position in width\X${}\E{}$\6
+\&{int} \|x${}\K\T{0};{}$\7
+${}\|x<\|l;$ $\|x\PP{}$\par
+\Us7, 15, 20\ETs26.\fi
+
+\M{12}Increment c to put the next sequence of pentomino coordinates in the 3d
+array.
+\Y\B\4\X12:Increment c\X${}\E{}$\6
+$\|c\PP{}$;\par
+\Us7, 15, 20\ETs26.\fi
+
+\M{13}We've to set a sentinel in the array O to mark the end of positions of O
+in the mobius strip.
+\Y\B\4\X13:Set sentinel for O.\X${}\E{}$\6
+$\|O[\|c][\T{0}][\T{0}]\K{-}\T{1}{}$;\par
+\U7.\fi
+
+\M{14}To deal with the overflow for the mobius strip to mirror back the Q
+across x axis.
+\Y\B\4\X14:If x+b is less than or equal to 15.\X${}\E{}$\6
+\&{if} ${}(\|x+\|b<\T{15}{}$)\par
+\Us8, 23, 25, 27\ETs29.\fi
+
+\N{1}{15}P is four boxes and a tail. We need all rotations of P.
+\Y\B\4\X15:P\X${}\E{}$\6
+$\|c\K\T{0};{}$\6
+\&{for} (\X18:0 and 1 y coordinates.\X;\6
+\,)\1\6
+\&{for} (\X11:All x position in width\X;\6
+\,)\5
+${}\{{}$\1\6
+\X16:Set P right\X\6
+\X12:Increment c\X;\6
+\X17:Set P left\X\6
+\X12:Increment c\X;\6
+\4${}\}{}$\2\2\6
+\X19:Set sentinel for P.\X;\6
+\X32:If x+1 is less than 15\X $\K$ \&{if} ${}(\|x+\T{1}<\T{15}{}$)\par
+\U6.\fi
+
+\M{16}We set P in the array P where P's tail is on the right-hand side that is
+it is the mirror image across y axis of what looks like a P pentameter
+configuration\Y\B\4\X16:Set P right\X${}\E{}$\6
+$\|P[\|c][\T{0}][\T{0}]\K\|x;{}$\6
+${}\|P[\|c][\T{0}][\T{1}]\K\|y;{}$\6
+${}\|P[\|c][\T{1}][\T{0}]\K(\|x+\T{1})\MOD\T{15};{}$\6
+\X32:If x+1 is less than 15\X\6
+${}\|P[\|c][\T{1}][\T{1}]\K\|y;{}$\6
+\&{else}\1\5
+${}\|P[\|c][\T{1}][\T{1}]\K\|w-\|y+\T{1};{}$\2\6
+${}\|P[\|c][\T{2}][\T{0}]\K\|x;{}$\6
+${}\|P[\|c][\T{2}][\T{1}]\K\|y+\T{1};{}$\6
+${}\|P[\|c][\T{3}][\T{0}]\K(\|x+\T{1})\MOD\T{15};{}$\6
+\X32:If x+1 is less than 15\X\6
+${}\|P[\|c][\T{3}][\T{1}]\K\|y+\T{1};{}$\6
+\&{else}\1\5
+${}\|P[\|c][\T{3}][\T{1}]\K\|w-(\|y+\T{1})+\T{1};{}$\2\6
+${}\|P[\|c][\T{4}][\T{0}]\K(\|x+\T{1})\MOD\T{15};{}$\6
+\X32:If x+1 is less than 15\X\6
+${}\|P[\|c][\T{4}][\T{1}]\K\|y+\T{2};{}$\6
+\&{else}\1\5
+${}\|P[\|c][\T{4}][\T{1}]\K\|w-(\|y+\T{2})+\T{1}{}$;\2\par
+\U15.\fi
+
+\M{17}We set P in the array P where P's tail is on the left-hand side that is
+it is the mirror image across y axis of what looks like a P pentameter
+configuration.
+\Y\B\4\X17:Set P left\X${}\E{}$\6
+$\|P[\|c][\T{0}][\T{0}]\K\|x;{}$\6
+${}\|P[\|c][\T{0}][\T{1}]\K\|y;{}$\6
+${}\|P[\|c][\T{1}][\T{0}]\K(\|x+\T{1})\MOD\T{15};{}$\6
+\X32:If x+1 is less than 15\X\6
+${}\|P[\|c][\T{1}][\T{1}]\K\|y;{}$\6
+\&{else}\1\5
+${}\|P[\|c][\T{1}][\T{1}]\K\|w-\|y+\T{1};{}$\2\6
+${}\|P[\|c][\T{2}][\T{0}]\K\|x;{}$\6
+${}\|P[\|c][\T{2}][\T{1}]\K\|y+\T{1};{}$\6
+${}\|P[\|c][\T{3}][\T{0}]\K(\|x+\T{1})\MOD\T{15};{}$\6
+\X32:If x+1 is less than 15\X\6
+${}\|P[\|c][\T{3}][\T{1}]\K\|y+\T{1};{}$\6
+\&{else}\1\5
+${}\|P[\|c][\T{3}][\T{1}]\K\|w-(\|y+\T{1})+\T{1};{}$\2\6
+${}\|P[\|c][\T{4}][\T{0}]\K\|x;{}$\6
+${}\|P[\|c][\T{4}][\T{1}]\K\|y+\T{2}{}$;\par
+\U15.\fi
+
+\M{18}For the pentaminoes that have width of 3
+\Y\B\4\X18:0 and 1 y coordinates.\X${}\E{}$\6
+\&{int} \|y${}\K\T{0};{}$\7
+${}\|y<\T{2};$ $\|y\PP{}$\par
+\Us15\ET20.\fi
+
+\M{19}We set a sentinel to mark the end of P positions in the array P.
+\Y\B\4\X19:Set sentinel for P.\X${}\E{}$\6
+$\|P[\|c][\T{0}][\T{0}]\K{-}\T{1}{}$;\par
+\U15.\fi
+
+\N{1}{20}Arranging pentomines for Q. We one by one proceed to put all rotations
+of Q across all positions.
+\Y\B\4\X20:Q\X${}\E{}$\6
+$\|c\K\T{0};{}$\7
+\&{int} \|Q[\.{MAX\_ARRAY}][\T{5}][\T{2}];\7
+\&{for} (\X21:0,1,2 y coordinates\X;\6
+\,)\5
+${}\{{}$\1\6
+\&{for} (\X11:All x position in width\X;\6
+\,)\5
+${}\{{}$\1\6
+\X23:Set Q bottom right\X\6
+\X12:Increment c\X;\6
+\X25:Set Q bottom left\X\6
+\X12:Increment c\X;\6
+\4${}\}{}$\2\6
+\4${}\}{}$\2\6
+\&{for} (\X18:0 and 1 y coordinates.\X;\6
+\,)\5
+${}\{{}$\1\6
+\&{for} (\X11:All x position in width\X;\6
+\,)\5
+${}\{{}$\1\6
+\X29:Set Q top left\X\6
+\X12:Increment c\X;\6
+\X25:Set Q bottom left\X\6
+\X12:Increment c\X;\6
+\4${}\}{}$\2\6
+\4${}\}{}$\2\6
+\X29:Set Q top left\X $\K$ \&{for} \X30:Four consecutive vertical boxes for Q%
+\X;\6
+${}\X31:If x minus one is less than one\X\|Q[\|c][\T{0}][\T{0}]\K(\|x-\T{1})%
+\MOD\T{15};{}$\6
+${}\|Q[\|c][\T{0}][\T{1}]\K\|y-\T{1};{}$\6
+\X26:Set sentinel for Q.\X;\par
+\U6.\fi
+
+\M{21}For pentominoes that have width of 2.
+\Y\B\4\X21:0,1,2 y coordinates\X${}\E{}$\6
+\&{int} \|y${}\K\T{0};{}$\7
+${}\|y<\T{3};$ $\|y\PP{}$\par
+\U20.\fi
+
+\M{22}For pentominoes that have width 2 and major horizontal center is one
+below the top extremity.
+\Y\B\4\X22:2,3,4 y coordinates\X${}\E{}$\6
+\&{int} \|y${}\K\T{1};{}$\7
+${}\|y<\T{4};$ $\|y\PP{}$\par
+\U26.\fi
+
+\M{23}Similarly, we have 4 consecutive horizontal boxes and one box is below
+the third box.
+\Y\B\4\X23:Set Q bottom right\X${}\E{}$\6
+\&{for} (\X24:Four consecutive boxes for Q\X\6
+\,)\5
+${}\{{}$\1\6
+${}\|Q[\|c][\|b][\T{0}]\K(\|x+\|b)\MOD\T{15};{}$\6
+\X14:If x+b is less than or equal to 15.\X\6
+${}\|Q[\|c][\|b][\T{1}]\K\|y;{}$\6
+\&{else}\1\5
+${}\|Q[\|c][\|b][\T{1}]\K\|w-\|y+\T{1};{}$\2\6
+\4${}\}{}$\2\6
+${}\|Q[\|c][\T{4}][\T{0}]\K(\|x+\T{2})\MOD\T{15};{}$\6
+\X32:If x+1 is less than 15\X\6
+${}\|Q[\|c][\T{4}][\T{1}]\K\|y+\T{1};{}$\6
+\&{else}\1\5
+${}\|Q[\|c][\T{4}][\T{1}]\K\|w-(\|y+\T{1})+\T{1}{}$;\2\par
+\U20.\fi
+
+\M{24}The pentomino that is 4 consecutive horizontal boxes and one box is below
+the second box.
+\Y\B\4\X24:Four consecutive boxes for Q\X${}\E{}$\6
+\&{int} \|b${}\K\T{0};{}$\7
+${}\|b<\T{4};$ $\|b\PP{}$\par
+\Us23, 25, 27\ETs29.\fi
+
+\M{25}Set a Q where Q's main line is horizontally aligned and the appendage is
+on the bottom left.
+\Y\B\4\X25:Set Q bottom left\X${}\E{}$\6
+\&{for} (\X24:Four consecutive boxes for Q\X;\6
+\,)\5
+${}\{{}$\1\6
+${}\|Q[\|c][\|b][\T{0}]\K(\|x+\|b)\MOD\T{15};{}$\6
+\X14:If x+b is less than or equal to 15.\X\6
+${}\|Q[\|c][\|b][\T{1}]\K\|y;{}$\6
+\&{else}\1\5
+${}\|Q[\|c][\|b][\T{1}]\K\|w-\|y+\T{1};{}$\2\6
+\4${}\}{}$\2\6
+${}\|Q[\|c][\T{4}][\T{0}]\K(\|x+\T{1})\MOD\T{15};{}$\6
+\X32:If x+1 is less than 15\X\6
+${}\|Q[\|c][\T{4}][\T{1}]\K\|y+\T{1};{}$\6
+\&{else}\1\5
+${}\|Q[\|c][\T{4}][\T{1}]\K\|w-(\|y+\T{1})+\T{1}{}$;\2\par
+\U20.\fi
+
+\M{26}Setting the sentinel so that we know when the number of placements
+terminate in the array Q.
+\Y\B\4\X26:Set sentinel for Q.\X${}\E{}$\6
+$\|Q[\|c][\T{0}][\T{0}]\K{-}\T{1};{}$\6
+\&{for} (\X22:2,3,4 y coordinates\X;\6
+\,)\5
+${}\{{}$\1\6
+\&{for} (\X11:All x position in width\X;\6
+\,)\5
+${}\{{}$\1\6
+\X27:Set Q top right\X\6
+\X12:Increment c\X;\6
+\X29:Set Q top left\X\6
+\X12:Increment c\X;\6
+\4${}\}{}$\2\6
+\4${}\}{}$\2\par
+\U20.\fi
+
+\M{27}We flip the Q bottom left across x axis.
+\Y\B\4\X27:Set Q top right\X${}\E{}$\6
+\&{for} (\X24:Four consecutive boxes for Q\X;\6
+\,)\5
+${}\{{}$\1\6
+${}\|Q[\|c][\|b][\T{0}]\K(\|x+\|b)\MOD\T{15};{}$\6
+\X14:If x+b is less than or equal to 15.\X;\6
+${}\|Q[\|c][\|b][\T{1}]\K\|y;{}$\6
+\&{else}\1\5
+${}\|Q[\|c][\|b][\T{1}]\K\|w-\|y+\T{1};{}$\2\6
+\4${}\}{}$\2\6
+${}\|Q[\|c][\T{4}][\T{0}]\K(\|x+\T{2})\MOD\T{15};{}$\6
+\X28:If x+2 is less than or equal to 15\X;\6
+${}\|Q[\|c][\T{4}][\T{1}]\K\|y+\T{1};{}$\6
+\&{else}\1\5
+${}\|Q[\|c][\T{4}][\T{1}]\K\|w-(\|y+\T{1})+\T{1}{}$;\2\par
+\U26.\fi
+
+\N{1}{28}So that the overflow in the pentomino jigsaw satisfies the mobius
+strip property.
+\Y\B\4\X28:If x+2 is less than or equal to 15\X${}\E{}$\6
+\&{if} ${}(\|x+\T{2}\Z\T{15}{}$)\par
+\U27.\fi
+
+\M{29}We flip Q bottom left across x axis.
+\Y\B\4\X29:Set Q top left\X${}\E{}$\6
+\&{for} (\X24:Four consecutive boxes for Q\X;\6
+\,)\5
+${}\{{}$\1\6
+${}\|Q[\|c][\|b][\T{0}]\K(\|x+\|b)\MOD\T{15};{}$\6
+\X14:If x+b is less than or equal to 15.\X;\6
+${}\|Q[\|c][\|b][\T{1}]\K\|y;{}$\6
+\&{else}\1\5
+${}\|Q[\|c][\|b][\T{1}]\K\|w-\|y+\T{1};{}$\2\6
+\4${}\}{}$\2\6
+${}\|Q[\|c][\T{4}][\T{0}]\K(\|x+\T{1})\MOD\T{15};{}$\6
+\X32:If x+1 is less than 15\X;\6
+${}\|Q[\|c][\T{4}][\T{1}]\K\|y-\T{1};{}$\6
+\&{else}\1\5
+${}\|Q[\|c][\T{4}][\T{1}]\K\|w-(\|y-\T{1})+\T{1}{}$;\2\par
+\Us20\ET26.\fi
+
+\M{30}We need four consecutive vertical boxes for Q along Q's main line.
+\Y\B\4\X30:Four consecutive vertical boxes for Q\X${}\E{}$\6
+\&{int} \|y${}\K\T{0};{}$\7
+${}\|y<\T{4};$ $\|y\PP{}$\par
+\U20.\fi
+
+\M{31}We need that x -1 is less than one
+\Y\B\4\X31:If x minus one is less than one\X${}\E{}$\6
+\&{if} ${}(\|x-\T{1}<\T{1}{}$)\par
+\U20.\fi
+
+\M{32}We need that x -1 is less than 15
+\Y\B\4\X32:If x+1 is less than 15\X${}\E{}$\6
+\&{if} ${}(\|x+\T{1}<\T{15}{}$)\par
+\Us15, 16, 17, 23, 25\ETs29.\fi
+
+\N{1}{33}Then we apply backtracking in which each pentomino letter represents a
+depth l in the tree and P_l stands for the set of x coordinates in extended hex
+notation and y coordinates in the strip that the letter occupies.
+\Y\B\4\X33:Backtracking on generated table.\X${}\E{}$\6
+;\par
+
+\U1.\fi
+
+
+\inx
+\fin
+\con

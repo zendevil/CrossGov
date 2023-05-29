@@ -1,0 +1,63 @@
+\I\X18:0 and 1 y coordinates.\X
+\Us15\ET20.
+\I\X21:0,1,2 y coordinates\X
+\U20.
+\I\X22:2,3,4 y coordinates\X
+\U26.
+\I\X9:All five consecutive boxes for O\X
+\U8.
+\I\X10:All the width\X
+\U7.
+\I\X11:All x position in width\X
+\Us7, 15, 20\ETs26.
+\I\X33:Backtracking on generated table.\X
+\U1.
+\I\X24:Four consecutive boxes for Q\X
+\Us23, 25, 27\ETs29.
+\I\X30:Four consecutive vertical boxes for Q\X
+\U20.
+\I\X6:Generate sequences in the table for the exact colored coloring problem.\X
+\U1.
+\I\X31:If x minus one is less than one\X
+\U20.
+\I\X32:If x+1 is less than 15\X
+\Us15, 16, 17, 23, 25\ETs29.
+\I\X28:If x+2 is less than or equal to 15\X
+\U27.
+\I\X14:If x+b is less than or equal to 15.\X
+\Us8, 23, 25, 27\ETs29.
+\I\X2:Include libraries.\X
+\U1.
+\I\X12:Increment c\X
+\Us7, 15, 20\ETs26.
+\I\X7:O\X
+\U6.
+\I\X15:P\X
+\U6.
+\I\X20:Q\X
+\U6.
+\I\X8:Set O\X
+\U7.
+\I\X17:Set P left\X
+\U15.
+\I\X16:Set P right\X
+\U15.
+\I\X25:Set Q bottom left\X
+\U20.
+\I\X23:Set Q bottom right\X
+\U20.
+\I\X29:Set Q top left\X
+\Us20\ET26.
+\I\X27:Set Q top right\X
+\U26.
+\I\X3:Set definitions.\X
+\U1.
+\I\X4:Set global variables.\X
+\U1.
+\I\X13:Set sentinel for O.\X
+\U7.
+\I\X19:Set sentinel for P.\X
+\U15.
+\I\X26:Set sentinel for Q.\X
+\U20.
+

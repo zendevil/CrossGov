@@ -1,0 +1,49 @@
+\datethis
+@* Introduction. This program creates combinations of T traits, each of which have V variants. We have directories 1,2,3...T. Each directory has files 1,2,...V. We combine the files from the ith directory in each possible combination. This creates all combinations of files 1,1...1 (T times) 1,1...2 1,1...3 1,1...V ... V,V,...V.
+
+@c
+@<Include.@>@;
+@<Definitions.@>@;
+@<Global variables.@>@;
+@<Main program.@>@;
+
+@ Including the required header files.
+@<Include.@>=
+#include<stdio.h> // printf
+#include<stdlib.h> // exit
+
+@ Defining the number of traits and the number of variants in each trait.
+@<Definitions.@>=
+#define T 7
+#define V 4
+
+
+@ Defining the variables that keep count of the variant to be used in each trait.
+@<Global variables.@>=
+int a[T+1];
+
+
+@ The entry point of the program.
+@<Main program.@>=
+int main(){
+@<Initialize.@>;
+ended: @<Ended?@>;
+combine: @<Combine.@>;
+i=T;
+next: @<Next@>;
+}
+
+@ @<Next@>=
+if(a[i]<V){@<Increment ai.@>; @<Reset aj.@>; goto ended;} else { i--; goto next;}
+@ @<Increment ai.@>= a[i]++;
+@ @<Reset aj.@>= for(int j=i+1;j<=T;j++) a[j]=1;
+@ We initialize the variables that store the trait numbers to be combined.
+@<Initialize.@>=
+int i;for(int k=1;k<=T;k++) a[k]=1;
+@ We end when we reach i==0 which happens when all a[i]==V except a[0].
+@<Ended?@>=
+if(i==0)exit(0);
+
+@ Combine traits a1,a2...aT into one.
+@<Combine.@>=
+for(int m=1;m<=T;m++)printf("%d",a[m]);printf("\n");

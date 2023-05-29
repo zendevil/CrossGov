@@ -1,0 +1,94 @@
+\input cwebmac
+\datethis
+
+\N{1}{1}Copyright MetaverseX. May 4, 2023. Introduction. This program creates
+combinations of T traits, each of which have V variants. We have directories
+1,2,3...T. Each directory has files 1,2,...V. We combine the files from the ith
+directory in each possible combination. This creates all combinations of files
+1,1...1 (T times) 1,1...2 1,1...3 1,1...V ... V,V,...V.
+
+\Y\B\X2:Include.\X\6
+\X3:Definitions.\X\6
+\X4:Global variables.\X\6
+\X5:Main program.\X\par
+\fi
+
+\M{2}Including the required header files.
+\Y\B\4\X2:Include.\X${}\E{}$\6
+\8\#\&{include} \.{<stdio.h>}\SHC{ printf }\6
+\8\#\&{include} \.{<stdlib.h>}\SHC{ exit }\par
+\U1.\fi
+
+\M{3}Defining the number of traits and the number of variants in each trait.
+\Y\B\4\X3:Definitions.\X${}\E{}$\6
+\8\#\&{define} \|T\5\T{7}\6
+\8\#\&{define} \|V\5\T{4}\par
+\U1.\fi
+
+\M{4}Defining the variables that keep count of the variant to be used in each
+trait.
+\Y\B\4\X4:Global variables.\X${}\E{}$\6
+\&{int} ${}\|a[\|T+\T{1}]{}$;\par
+\U1.\fi
+
+\M{5}The entry point of the program.
+\Y\B\4\X5:Main program.\X${}\E{}$\6
+\1\1\&{int} \\{main}(\,)\2\2\6
+${}\{{}$\1\6
+\X9:Initialize.\X;\6
+\4\\{ended}:\5
+\X10:Ended?\X;\6
+\4\\{combine}:\5
+\X11:Combine.\X;\6
+${}\|i\K\|T;{}$\6
+\4\\{next}:\5
+\X6:Next\X;\6
+\4${}\}{}$\2\par
+\U1.\fi
+
+\M{6}\B\X6:Next\X${}\E{}$\6
+\&{if} ${}(\|a[\|i]<\|V){}$\5
+${}\{{}$\1\6
+\X7:Increment ai.\X;\6
+\X8:Reset aj.\X;\6
+\&{goto} \\{ended};\6
+\4${}\}{}$\2\6
+\&{else}\5
+${}\{{}$\1\6
+${}\|i\MM;{}$\6
+\&{goto} \\{next};\6
+\4${}\}{}$\2\par
+\U5.\fi
+
+\M{7}\B\X7:Increment ai.\X${}\E{}$\6
+$\|a[\|i]\PP{}$;\par
+\U6.\fi
+
+\M{8}\B\X8:Reset aj.\X${}\E{}$\6
+\&{for} (\&{int} \|j${}\K\|i+\T{1};{}$ ${}\|j\Z\|T;{}$ ${}\|j\PP){}$\1\5
+${}\|a[\|j]\K\T{1}{}$;\2\par
+\U6.\fi
+
+\M{9}We initialize the variables that store the trait numbers to be combined.
+\Y\B\4\X9:Initialize.\X${}\E{}$\6
+\&{int} \|i;\7
+\&{for} (\&{int} \|k${}\K\T{1};{}$ ${}\|k\Z\|T;{}$ ${}\|k\PP){}$\1\5
+${}\|a[\|k]\K\T{1}{}$;\2\par
+\U5.\fi
+
+\M{10}We end when we reach i==0 which happens when all a[i]==V except a[0].
+\Y\B\4\X10:Ended?\X${}\E{}$\6
+\&{if} ${}(\|i\E\T{0}){}$\1\5
+\\{exit}(\T{0});\2\par
+\U5.\fi
+
+\M{11}Combine traits a1,a2...aT into one.
+\Y\B\4\X11:Combine.\X${}\E{}$\6
+\&{for} (\&{int} \|m${}\K\T{1};{}$ ${}\|m\Z\|T;{}$ ${}\|m\PP){}$\1\5
+${}\\{printf}(\.{"\%d"},\39\|a[\|m]);{}$\2\6
+\\{printf}(\.{"\\n"});\par
+\U5.\fi
+
+\inx
+\fin
+\con

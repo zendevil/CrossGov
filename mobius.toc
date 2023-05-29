@@ -1,0 +1,10 @@
+\catcode `\@=11\relax 
+\ZZ {MetaverseX Copyright}{0}{1}{1}{MetaverseX Copyright}
+\ZZ {We generate the coordinates in the array that can be thought of as sequences corresponding to the letter as the first element in the sequence for the exact covering problem followed by the coordinates of the five perpendicularly adjacent pentominoes}{1}{6}{2}{We generate the coordinates in the array that can be thought of as sequences corresponding to the letter as the first element in the sequence for the exact covering problem followed by the coordinates of the five perpendicularly adjacent pentominoes}
+\ZZ {O is for setting the 3d array O with the five coordinates}{1}{7}{3}{O is for setting the 3d array O with the five coordinates}
+\ZZ {P is four boxes and a tail}{1}{15}{5}{P is four boxes and a tail}
+\ZZ {Arranging pentomines for Q}{1}{20}{7}{Arranging pentomines for Q}
+\ZZ {So that the overflow in the pentomino jigsaw satisfies the mobius strip property}{1}{28}{10}{So that the overflow in the pentomino jigsaw satisfies the mobius strip property}
+\ZZ {Then we apply backtracking in which each pentomino letter represents a depth l in the tree and P_l stands for the set of x coordinates in extended hex notation and y coordinates in the strip that the letter occupies}{1}{33}{11}{Then we apply backtracking in which each pentomino letter represents a depth l in the tree and P_l stands for the set of x coordinates in extended hex notation and y coordinates in the strip that the letter occupies}
+
+\catcode `\@=12\relax 

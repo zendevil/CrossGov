@@ -1,0 +1,18 @@
+@** We're testing an answer's correctness from TAOCP.
+@* Program Structure
+@<Import statements@>@;
+@<Definition@>@;
+@<Global variables@>@;
+@<Procedures@>@;
+
+@<Import statements@>=#include<stdio.h>
+@<Definition@>=#define N 4
+@<Global variables@>=char* match,leftofmatch,rightofmatch;
+
+@<Procedures@>=int main(int ac,char* av){
+@<Initialize@>;
+@<Run matching@>@;
+}
+@<Initialize@>=char* sigma=av[1];int j=0;
+@<Run matching@>=if(@<There's a match that's not null@>@;){sigma=leftofmatch+phi[j]+rightofmatch;j=b[j];}else j=a[j];
+@<There's a match...@>=if(j==N){printf("%s\n",sigma);exit(0);}else @<Run matching@>@;

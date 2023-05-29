@@ -1,0 +1,305 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdftex 2022.11.13)  12 MAY 2023 22:24
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**mobius.tex
+(./mobius.tex (./cwebmac.tex
+(/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/iftex.sty)
+\PPbox=\box16
+\MMbox=\box17
+\MGbox=\box18
+\MODbox=\box19
+\bak=\box20
+\bakk=\box21
+\ind=\count27
+\gdepth=\count28
+\secpagedepth=\count29
+\gtitle=\toks13
+\intersecskip=\skip18
+\toksA=\toks14
+\toksB=\toks15
+\toksC=\toks16
+\toksD=\toks17
+\toksE=\toks18
+\toksF=\toks19
+\usersanitizer=\toks20
+\countA=\count30
+\countB=\count31
+\countC=\count32
+\countD=\count33
+\pagewidth=\dimen16
+\pageheight=\dimen17
+\fullpageheight=\dimen18
+\pageshift=\dimen19
+\cont=\write0
+\sbox=\box22
+\lbox=\box23
+\twodigits=\count34
+) *1
+! Undefined control sequence.
+l.20 can have on the $15 \mul
+                              4$ mobius strip.
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.41 The formula for O is ab_
+                             1, ab_2, ab_3, ab_4, ab_5 for a in 1-4, b_1=c f...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.44 
+     
+? 
+[1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+\openout0 = `mobius.toc'.
+
+] *6
+Overfull \hbox (934.93175pt too wide) has occurred while \output is active
+[]\tenrm 2 \eightrm WE GENERATE THE COORDINATES IN THE ARRAY THAT CAN BE THOUGH
+T OF AS SEQUENCES CORRESPONDING TO THE LETTER AS THE FIRST ELEMENT IN THE SEQUE
+NCE FOR THE EXACT COVERING PROBLEM FOLLOWED BY THE COORDINATES OF THE FIVE PERP
+ENDICULARLY ADJACENT PENTOMINOES MOBIUS \tensy x\tenrm 6|
+
+\hbox(10.0+1.94444)x469.75499, glue set - 1.0
+.\vbox(10.0+0.0)x0.0
+.\tenrm 2
+.\glue 17.00024
+.\eightrm W
+.\eightrm E
+.etc.
+
+[2] *7 [3] [4] *15 [5] [6] *20 [7] [8] [9] *28
+Overfull \hbox (35.97842pt too wide) has occurred while \output is active
+[]\tenrm 10 \eightrm SO THAT THE OVERFLOW IN THE PENTOMINO JIGSAW SATISFIES THE
+ MOBIUS STRIP PROPERTY MOBIUS \tensy x\tenrm 28|
+
+\hbox(10.0+1.94444)x469.75499, glue set - 1.0
+.\vbox(10.0+0.0)x0.0
+.\tenrm 1
+.\tenrm 0
+.\glue 17.00024
+.\eightrm S
+.etc.
+
+[10] *33
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+<argument> ...resents a depth l in the tree and P_
+                                                  l stands for the set of x ...
+
+\N ...H @ypos ] >>}\fi \ifon \startsection {\bf #3
+                                                  .\quad }\ignorespaces 
+l.370 ...es in the strip that the letter occupies.
+                                                  
+? 
+! Extra }, or forgotten $.
+\N ...] >>}\fi \ifon \startsection {\bf #3.\quad }
+                                                  \ignorespaces 
+l.370 ...es in the strip that the letter occupies.
+                                                  
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+\Y ->\par 
+          \yskip 
+l.371 \Y
+        \B\4\X33:Backtracking on generated table.\X${}\E{}$\6
+? 
+
+Overfull \hbox (54.28407pt too wide) in paragraph at lines 370--371
+\tenbf tree and P$[]\teni standsforthesetofxcoordinatesinextendedhexnotationand
+ycoordinatesinthestripthattheletteroccupies: $ |
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\tenbf t
+.\tenbf r
+.\tenbf e
+.\tenbf e
+.\glue 3.83331 plus 1.91666 minus 1.27777
+.etc.
+
+Index: (./mobius.idx)
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+<argument> ...RESENTS A DEPTH L IN THE TREE AND P_
+                                                  L STANDS FOR THE SET OF X ...
+
+\takethree #1#2#3->#3
+                     
+\rheader ...htrm \qquad \title \hfill \grouptitle 
+                                                  \qquad \mainfont \the \pag...
+
+\normaloutput ... {\vbox to10pt{}\ifodd \pageno #3
+                                                  \else #2\fi }\fi \vfill #1...
+...
+l.378 \fin
+          
+? 
+! Extra }, or forgotten $.
+\normaloutput ...t{}\ifodd \pageno #3\else #2\fi }
+                                                  \fi \vfill #1}} \global \a...
+<output> ...lbox \hfil \page }}}\lheader \rheader 
+                                                  \global \vsize \pageheight...
+
+\break ->\penalty -\@M 
+                       
+\fin ...l \eject \ifpagesaved \null \vfill \eject 
+                                                  \fi \if L\lr \else \null \...
+l.378 \fin
+          
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \vfill 
+\normaloutput ...pageno #3\else #2\fi }\fi \vfill 
+                                                  #1}} \global \advance \pag...
+<output> ...lbox \hfil \page }}}\lheader \rheader 
+                                                  \global \vsize \pageheight...
+
+\break ->\penalty -\@M 
+                       
+\fin ...l \eject \ifpagesaved \null \vfill \eject 
+                                                  \fi \if L\lr \else \null \...
+l.378 \fin
+          
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   \vfill 
+\normaloutput ...pageno #3\else #2\fi }\fi \vfill 
+                                                  #1}} \global \advance \pag...
+<output> ...lbox \hfil \page }}}\lheader \rheader 
+                                                  \global \vsize \pageheight...
+
+\break ->\penalty -\@M 
+                       
+\fin ...l \eject \ifpagesaved \null \vfill \eject 
+                                                  \fi \if L\lr \else \null \...
+l.378 \fin
+          
+? 
+
+Overfull \hbox (873.95636pt too wide) has occurred while \output is active
+[]\tensy x\tenrm 33 \eightrm MOBIUS THEN WE APPLY BACKTRACKING IN WHICH EACH PE
+NTOMINO LETTER REPRESENTS A DEPTH L IN THE TREE AND P$[]\teni STANDSFORTHESETOF
+XCOORDINATESINEXTENDEDHEXNOTATIONANDYCOORDINATESINTHESTRIPTHATTHELETTEROCCUPIES
+ \tenrm 11$|
+
+\hbox(10.0+1.94444)x469.75499, glue set - 1.0
+.\vbox(10.0+0.0)x0.0
+.\tensy x
+.\tenrm 3
+.\tenrm 3
+.\glue 17.00024
+.etc.
+
+[11] (./mobius.toc) Number of named sections: (./mobius.scn) 31 Section names:
+(./mobius.scn) [12] Table of contents: (./mobius.toc
+Overfull \hbox (620.08006pt too wide) detected at line 3
+\tenrm We generate the coordinates in the array that can be thought of as seque
+nces corresponding to the letter as the first element in the sequence for the e
+xact covering problem followed by the coordinates of the five perpendicularly a
+djacent pentominoes   [][]|
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\tenrm W
+.\kern-0.83334
+.\tenrm e
+.\glue 3.33333 plus 1.66666 minus 1.11111
+.\tenrm g
+.etc.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+<argument> ...resents a depth l in the tree and P_
+                                                  l stands for the set of x ...
+
+\ZZ ...2=0 \smallbreak \fi \line {\consetup {#2}#1
+                                                   \rm \leaders \hbox to .5e...
+l.8 ...ates in the strip that the letter occupies}
+                                                  
+? 
+! Extra }, or forgotten $.
+\ZZ ...al #3}\else #3\fi \hbox to3em{\hss #4}\fi }
+                                                  
+l.8 ...ates in the strip that the letter occupies}
+                                                  
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.9 
+    
+? 
+)
+! Missing } inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   \vfill 
+\botofcontents ->\vfill 
+                        \centerline {\covernote }
+\con ...sline \readcontents \relax \botofcontents 
+                                                  \end 
+l.379 \con
+          
+? 
+
+Overfull \hbox (443.47256pt too wide) detected at line 379
+\tenrm Then we apply backtracking in which each pentomino letter represents a d
+epth l in the tree and P$[]\teni standsforthesetofxcoordinatesinextendedhexnota
+tionandycoordinatesinthestripthattheletteroccupies  [][]$|
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\tenrm T
+.\tenrm h
+.\tenrm e
+.\tenrm n
+.\glue 3.33333 plus 1.66666 minus 1.11111
+.etc.
+
+[0] )
+(\end occurred inside a group at level 1)
+
+### simple group (level 1) entered at line 370 ({)
+### bottom level</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.
+pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtex10.p
+fb>
+Output written on mobius.pdf (13 pages, 146045 bytes).
+PDF statistics:
+ 486 PDF objects out of 1000 (max. 8388607)
+ 458 compressed objects within 5 object streams
+ 1 named destinations out of 1000 (max. 500000)
+ 313 words of extra memory for PDF output out of 10000 (max. 10000000)
+
